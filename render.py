@@ -54,11 +54,11 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += "<tr><td class='label'>"+ outer_box["name"] + "<br /><i>"+ outer_box["type"]+"</i></td>"
+        result += "<tr><td>"+ outer_box["name"] + "<br /><small>"+ outer_box["type"]+"</small></td>"
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
-                result += "<td class='compatiblity'>"+(
+                result += "<td>"+(
                     check_and_render_compatility_to_html(
                         outer_box["inner_x"],
                         outer_box["inner_y"],
@@ -113,7 +113,7 @@ def check_and_render_compatility_to_html(outer_x, outer_y, inner_x, inner_y):
         else:
             icon = "✔️"
 
-        return "{}<br />*~{:.0f}%*<br />{} *({}x{})*".format(
+        return "{}<br /><small>~{:.0f}%</small><br />{} <small>({}x{})</small>".format(
             icon,
             compatility["used_area_percent"]*100,
             compatility["x_count"]*compatility["y_count"],
@@ -129,9 +129,9 @@ def load_data(filename):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Parse and render box compatiblity.")
-    parser.add_argument("--format", help="Format to render, html and md possible", default="html")
+    parser.add_argument("--format", help="Format to render, html and md possible", default="md")
     parser.add_argument("--input", help="Input Json file", default="data.json")
-    parser.add_argument("--output", help="Input Json file", default="output.html")
+    parser.add_argument("--output", help="Input Json file", default="output.md")
 
     args = parser.parse_args()
     config = vars(args)

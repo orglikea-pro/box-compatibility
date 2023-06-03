@@ -2,7 +2,7 @@
     {
         "name": "EuroBox 60x40",
         "vendor": "",
-        "type": "Box",
+        "type": "Container",
         "link": "",
         "inner_x": 57,
         "inner_y": 37,
@@ -12,7 +12,7 @@
     {
         "name": "Eurobox 40x30",
         "vendor": "",
-        "type": "Box",
+        "type": "Container",
         "link": "",
         "inner_x": 37,
         "inner_y": 27,
@@ -22,7 +22,7 @@
     {
         "name": "OrgPro",
         "vendor": "",
-        "type": "Box",
+        "type": "Container",
         "link": "",
         "inner_x": 16.9,
         "inner_y": 12.4,
@@ -32,7 +32,7 @@
     {
         "name": "Gridfinity",
         "vendor": "",
-        "type": "Box",
+        "type": "Container",
         "link": "",
         "inner_x": 4,
         "inner_y": 4,
@@ -52,7 +52,7 @@
     {
         "name": "Pappis",
         "vendor": "Ikea",
-        "type": "Box",
+        "type": "Container",
         "link": "https://www.ikea.com/de/de/p/pappis-box-mit-deckel-braun-00100467/",
         "inner_x": 33.5,
         "inner_y": 25,
@@ -72,7 +72,7 @@
     {
         "name": "EuroPlus",
         "vendor": "Allit",
-        "type": "Box",
+        "type": "Container",
         "link": "",
         "inner_x": 76,
         "inner_y": 27,
@@ -82,7 +82,7 @@
     {
         "name": "Holzbox",
         "vendor": "Hornbach",
-        "type": "Box",
+        "type": "Container",
         "link": "",
         "inner_x": 76,
         "inner_y": 27,

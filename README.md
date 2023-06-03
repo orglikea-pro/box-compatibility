@@ -19,10 +19,10 @@ To contribute to the Box Compatibility Project and add a new box to the database
       "vendor": "Vendor Name",
       "type": "Box Type",
       "link": "Link to More Information",
-      "inner_x": Dimension in X-axis for Inner Space,
-      "inner_y": Dimension in Y-axis for Inner Space,
-      "outer_x": Dimension in X-axis for Outer Space,
-      "outer_y": Dimension in Y-axis for Outer Space
+      "inner_x": 57,
+      "inner_y": 37,
+      "outer_x": 60,
+      "outer_y": 40
    }
 
 
@@ -43,13 +43,10 @@ To render the box compatibility data into HTML or Markdown format, you can use t
 
 2. Open a terminal or command prompt and navigate to the project's directory.
 
-3. Run the `render.py` script with the desired parameters. For example, to render the data into HTML format, use the following command:
+3. Run the `render.py` script with the desired parameters. By default it would render the `data.json` to markdown as `output.md`. If you like you can change the behavior for example to render the data into HTML format, use the following command:
 
-```python render.py --format html --input data.json --output output.html```
+```python render.py --format html --output output.html```
 
-
-- Replace `data.json` with the path to your input JSON file if it's located in a different directory.
-- Replace `output.html` with the desired output file name and path.
 
 4. The script will process the data and generate the output file in the specified format (HTML or Markdown).
 
