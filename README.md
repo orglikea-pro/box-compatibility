@@ -6,18 +6,22 @@ The Box Compatibility Project aims to collect and analyze data on various types 
 
 The goal of the Box Compatibility Project is to create a comprehensive database of boxes, along with their dimensions, features, and compatibility information with different storage systems such as shelves, cabinets, and containers. By gathering this data, we aim to assist individuals and businesses in finding the most suitable boxes for their storage needs and ensuring efficient utilization of space.
 
+The results can be viewed [here](https://orglikea.pro/tools/box-compatibility/) or rendered by the script (see "Rendering the Data").
+
+*Example table*
+![Example](example.png)
+
 ## Adding a New Box
 
 To contribute to the Box Compatibility Project and add a new box to the database, please follow these steps:
 
 1. Open the `data.json` file in the repository.
-
 2. Add the information of the new box in the following format:
    ```json
    {
       "name": "Box Name",
       "vendor": "Vendor Name",
-      "type": "Box Type",
+      "type": "Box Type: Container or Shelf",
       "link": "Link to More Information",
       "inner_x": 57,
       "inner_y": 37,
@@ -25,13 +29,11 @@ To contribute to the Box Compatibility Project and add a new box to the database
       "outer_y": 40
    }
 
-
 3. Replace the values with the appropriate information for the new box.
 4. Ensure the dimensions (`inner_x`, `inner_y`, `outer_x`, `outer_y`) are accurate and in the appropriate units.
-
 5. Save the changes to the `data.json` file.
-
-6. Submit a merge request with your changes.
+6. Regnerate the `README.md` by `python render.py --format readme` file.
+7. Submit a merge request with your changes.
 
 Once your contribution is accepted and merged, the new box and its compatibility information will be added to the project's database.
 

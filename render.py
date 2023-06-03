@@ -44,7 +44,7 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
     result = prefix
     # Headline (no shelfs)
     ct = 1
-    result += "<table><tr>"
+    result += "<table><tr class='boxcomp-header'>"
     result += "<th>Outer\\Inner</th>"
     for inner_box in items:
         if inner_box["type"] != "Shelf":
@@ -54,11 +54,11 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += "<tr><td>"+ outer_box["name"] + "<br /><small>"+ outer_box["type"]+"</small></td>"
+        result += "<tr class='boxcomp-row'><td><a href='"+outer_box["link"]+"'>"+ outer_box["name"] + "</a><br /><small>"+ outer_box["type"]+"</small></td>"
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
-                result += "<td>"+(
+                result += "<td class='boxcomp-state'>"+(
                     check_and_render_compatility_to_html(
                         outer_box["inner_x"],
                         outer_box["inner_y"],
@@ -86,7 +86,7 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += ("|" + outer_box["name"] + "<br />*"+ outer_box["type"]+"* | ")
+        result += ("|[" + outer_box["name"] + "]("+outer_box["link"]+")<br />*"+ outer_box["type"]+"* | ")
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
@@ -129,18 +129,28 @@ def load_data(filename):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Parse and render box compatiblity.")
-    parser.add_argument("--format", help="Format to render, html and md possible", default="md")
+    parser.add_argument("--format", help="Format to render. html, or md possible", default="md")
     parser.add_argument("--input", help="Input Json file", default="data.json")
-    parser.add_argument("--output", help="Input Json file", default="output.md")
+    parser.add_argument("--output", help="Input Json file", default=None)
 
     args = parser.parse_args()
     config = vars(args)
 
     boxdata = load_data(config["input"])
-    with open(config["output"], "w", encoding='UTF-8') as f:
-        content = ""
-        if config["format"] == "md":
-            content = render_to_md(boxdata)
-        if config["format"] == "html":
-            content = render_to_html(boxdata)
+
+    content = ""
+    output_filename = ""
+
+    if config["format"] == "md":
+        content = render_to_md(boxdata)
+        output_filename = "output.md"
+
+    if config["format"] == "html":
+        content = render_to_html(boxdata)
+        output_filename = "output.html"
+
+    if config["output"] != None:
+        output_filename = config["output"]
+
+    with open(output_filename, "w", encoding='UTF-8') as f:
         f.write(content)
