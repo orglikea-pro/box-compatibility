@@ -70,23 +70,13 @@
         "outer_y": 30
     },
     {
-        "name": "EuroPlus",
+        "name": "EuroPlus Flex",
         "vendor": "Allit",
         "type": "Container",
-        "link": "",
-        "inner_x": 76,
-        "inner_y": 27,
-        "outer_x": 80,
-        "outer_y": 30
-    },
-    {
-        "name": "Holzbox",
-        "vendor": "Hornbach",
-        "type": "Container",
-        "link": "",
-        "inner_x": 76,
-        "inner_y": 27,
-        "outer_x": 80,
-        "outer_y": 30
+        "link": "https://www.allit.de/en/products/diy/kleinteilekoffer/europlus-flex",
+        "inner_x": 34.8,
+        "inner_y": 24.6,
+        "outer_x": 36.5,
+        "outer_y": 29.5
     }
 ]
