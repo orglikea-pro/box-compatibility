@@ -26,7 +26,7 @@ def check_compatility_easy(outer_x, outer_y, inner_x, inner_y):
         "y_count": count_y,
         "y_diff": count_full_y % 1,
         "total_count": floor(count_full_x) * floor(count_full_y),
-        "used_area_percent": user_area_percent
+        "used_area_percent": user_area_percent,
     }
 
 
@@ -40,6 +40,7 @@ def check_compatility(outer_x, outer_y, inner_x, inner_y):
     else:
         return vertical
 
+
 def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
     result = prefix
     # Headline (no shelfs)
@@ -48,28 +49,42 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
     result += "<th>Outer\\Inner</th>"
     for inner_box in items:
         if inner_box["type"] != "Shelf":
-            ct=ct+1
-            result += "<th>" + inner_box["vendor"] + "<br />"+ inner_box["name"] + "</th>"
+            ct = ct + 1
+            result += (
+                "<th>" + inner_box["vendor"] + "<br />" + inner_box["name"] + "</th>"
+            )
     result += "</tr>"
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += "<tr class='boxcomp-row'><td>"+ outer_box["vendor"] + "<br /><a href='"+outer_box["link"]+"'>" + outer_box["name"] + "</a><br /><small>"+ outer_box["type"]+"</small></td>"
+        result += (
+            "<tr class='boxcomp-row'><td>"
+            + outer_box["vendor"]
+            + "<br /><a href='"
+            + outer_box["link"]
+            + "'>"
+            + outer_box["name"]
+            + "</a><br /><small>"
+            + outer_box["type"]
+            + "</small></td>"
+        )
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
-                result += "<td class='boxcomp-state'>"+(
+                result += "<td class='boxcomp-state'>" + (
                     check_and_render_compatility_to_html(
                         outer_box["inner_x"],
                         outer_box["inner_y"],
                         inner_box["outer_x"],
                         inner_box["outer_y"],
                     )
-                    + "</td>")
+                    + "</td>"
+                )
         result += "</tr>"
     result += "</table>"
     result += postfix
     return result
+
 
 def render_to_md(items, prefix="# Box Compatibliy\n"):
     result = prefix
@@ -78,7 +93,7 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
     result += "| Outer\\Inner|"
     for inner_box in items:
         if inner_box["type"] != "Shelf":
-            ct=ct+1
+            ct = ct + 1
             result += inner_box["vendor"] + "<br />" + inner_box["name"] + "|"
     result += "\n"
     # write the | --- | based on the non shelfs
@@ -86,7 +101,18 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += ("|" +outer_box["vendor"] +"[" + "<br />" + outer_box["name"] + "]("+outer_box["link"]+")<br />*"+ outer_box["type"]+"* | ")
+        result += (
+            "|"
+            + outer_box["vendor"]
+            + "["
+            + "<br />"
+            + outer_box["name"]
+            + "]("
+            + outer_box["link"]
+            + ")<br />*"
+            + outer_box["type"]
+            + "* | "
+        )
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
@@ -97,13 +123,15 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
                         inner_box["outer_x"],
                         inner_box["outer_y"],
                     )
-                    + " | ")
+                    + " | "
+                )
         result += "|\n"
     return result
 
+
 def check_and_render_compatility_to_html(outer_x, outer_y, inner_x, inner_y):
     compatility = check_compatility(outer_x, outer_y, inner_x, inner_y)
-    
+
     if compatility["total_count"] == 0:
         return "❌"
     else:
@@ -115,8 +143,8 @@ def check_and_render_compatility_to_html(outer_x, outer_y, inner_x, inner_y):
 
         return "{}<br /><small>~{:.0f}%</small><br />{} <small>({}x{})</small>".format(
             icon,
-            compatility["used_area_percent"]*100,
-            compatility["x_count"]*compatility["y_count"],
+            compatility["used_area_percent"] * 100,
+            compatility["x_count"] * compatility["y_count"],
             compatility["x_count"],
             compatility["y_count"],
         )
@@ -129,7 +157,9 @@ def load_data(filename):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Parse and render box compatiblity.")
-    parser.add_argument("--format", help="Format to render. html, or md possible", default="md")
+    parser.add_argument(
+        "--format", help="Format to render. html, or md possible", default="md"
+    )
     parser.add_argument("--input", help="Input Json file", default="data.json")
     parser.add_argument("--output", help="Input Json file", default=None)
 
@@ -152,5 +182,5 @@ if __name__ == "__main__":
     if config["output"] != None:
         output_filename = config["output"]
 
-    with open(output_filename, "w", encoding='UTF-8') as f:
+    with open(output_filename, "w", encoding="UTF-8") as f:
         f.write(content)
