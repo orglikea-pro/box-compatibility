@@ -1,7 +1,7 @@
 [
     {
         "name": "EuroBox 60x40",
-        "vendor": "",
+        "vendor": "Generic",
         "type": "Container",
         "link": "",
         "inner_x": 57,
@@ -11,7 +11,7 @@
     },
     {
         "name": "Eurobox 40x30",
-        "vendor": "",
+        "vendor": "Generic",
         "type": "Container",
         "link": "",
         "inner_x": 37,
@@ -21,7 +21,7 @@
     },
     {
         "name": "OrgPro",
-        "vendor": "",
+        "vendor": "Generic",
         "type": "Container",
         "link": "",
         "inner_x": 16.9,
@@ -31,7 +31,7 @@
     },
     {
         "name": "Gridfinity",
-        "vendor": "",
+        "vendor": "Generic",
         "type": "Container",
         "link": "",
         "inner_x": 4,

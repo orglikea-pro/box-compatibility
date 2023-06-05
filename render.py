@@ -49,12 +49,12 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
     for inner_box in items:
         if inner_box["type"] != "Shelf":
             ct=ct+1
-            result += "<th>" + inner_box["name"] + "</th>"
+            result += "<th>" + inner_box["vendor"] + "<br />"+ inner_box["name"] + "</th>"
     result += "</tr>"
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += "<tr class='boxcomp-row'><td><a href='"+outer_box["link"]+"'>"+ outer_box["name"] + "</a><br /><small>"+ outer_box["type"]+"</small></td>"
+        result += "<tr class='boxcomp-row'><td>"+ outer_box["vendor"] + "<br /><a href='"+outer_box["link"]+"'>" + outer_box["name"] + "</a><br /><small>"+ outer_box["type"]+"</small></td>"
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
@@ -79,14 +79,14 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
     for inner_box in items:
         if inner_box["type"] != "Shelf":
             ct=ct+1
-            result += inner_box["name"] + "|"
+            result += inner_box["vendor"] + "<br />" + inner_box["name"] + "|"
     result += "\n"
     # write the | --- | based on the non shelfs
     result += "| --- " * ct + "|\n"
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += ("|[" + outer_box["name"] + "]("+outer_box["link"]+")<br />*"+ outer_box["type"]+"* | ")
+        result += ("|" +outer_box["vendor"] +"[" + "<br />" + outer_box["name"] + "]("+outer_box["link"]+")<br />*"+ outer_box["type"]+"* | ")
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
