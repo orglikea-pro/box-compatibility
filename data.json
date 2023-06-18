@@ -40,14 +40,34 @@
         "outer_y": 4.1
     },
     {
-        "name": "Ivar",
+        "name": "Ivar 80x30",
         "vendor": "Ikea",
         "type": "Shelf",
-        "link": "",
+        "link": "https://www.ikea.com/de/de/p/ivar-regal-kiefer-s49248311/",
         "inner_x": 80,
         "inner_y": 30,
-        "outer_x": 83,
+        "outer_x": 89,
         "outer_y": 30
+    },    
+    {
+        "name": "Ivar 80x50",
+        "vendor": "Ikea",
+        "type": "Shelf",
+        "link": "https://www.ikea.com/de/de/p/ivar-1-elem-boeden-kiefer-s59248320/",
+        "inner_x": 80,
+        "inner_y": 50,
+        "outer_x": 89,
+        "outer_y": 50
+    },   
+    {
+        "name": "Ivar 80x50 Ext.",
+        "vendor": "Ikea",
+        "type": "Shelf",
+        "link": "https://orglikea.pro",
+        "inner_x": 80,
+        "inner_y": 60,
+        "outer_x": 89,
+        "outer_y": 60
     },
     {
         "name": "Pappis",
@@ -78,5 +98,35 @@
         "inner_y": 24.6,
         "outer_x": 36.5,
         "outer_y": 29.5
+    },
+    {
+        "name": "Eket 1x1",
+        "vendor": "Ikea",
+        "type": "Shelf",
+        "link": "https://www.ikea.com/de/de/p/eket-schrank-weiss-70332124/",
+        "inner_x": 31,
+        "inner_y": 23,
+        "outer_x": 35,
+        "outer_y": 25
+    },
+    {
+        "name": "Kallax 1x1",
+        "vendor": "Ikea",
+        "type": "Shelf",
+        "link": "https://www.ikea.com/de/de/p/kallax-regal-weiss-90301555/",
+        "inner_x": 33.5,
+        "inner_y": 39,
+        "outer_x": 41,
+        "outer_y": 39
+    },
+    {
+        "name": "Kallax drawer",
+        "vendor": "Ikea",
+        "type": "Shelf",
+        "link": "https://www.ikea.com/de/de/p/kallax-einsatz-mit-2-schubladen-weiss-70286645/",
+        "inner_x": 30.5,
+        "inner_y": 27.5,
+        "outer_x": 37.5,
+        "outer_y": 33
     }
 ]
