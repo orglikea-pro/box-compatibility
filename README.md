@@ -32,8 +32,7 @@ To contribute to the Box Compatibility Project and add a new box to the database
 3. Replace the values with the appropriate information for the new box.
 4. Ensure the dimensions (`inner_x`, `inner_y`, `outer_x`, `outer_y`) are accurate and in the appropriate units.
 5. Save the changes to the `data.json` file.
-6. Regnerate the `README.md` by `python render.py --format readme` file.
-7. Submit a merge request with your changes.
+6. Submit a merge request with your changes.
 
 Once your contribution is accepted and merged, the new box and its compatibility information will be added to the project's database.
 
