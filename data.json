@@ -128,5 +128,15 @@
         "inner_y": 27.5,
         "outer_x": 37.5,
         "outer_y": 33
+    },
+    {
+        "name": "Alex drawer",
+        "vendor": "Ikea",
+        "type": "Shelf",
+        "link": "https://www.ikea.com/de/de/p/alex-schubladenelement-weiss-00473546/",
+        "inner_x": 52.5,
+        "inner_y": 29.7,
+        "outer_x": 58,
+        "outer_y": 36
     }
 ]
