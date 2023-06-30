@@ -82,6 +82,10 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
                 )
         result += "</tr>"
     result += "</table>"
+    result += "<h2>Legend</h2>\n" \
+        "❌ No fit at all <br />\n" \
+        "🔘 Bad fit (<70%% surface utilizazion) <br /> \n" \
+        "✔️ Good fit (>70%% fit)"
     result += postfix
     return result
 
@@ -101,18 +105,7 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
 
     # for each box or shelf, create a row for each non shelf
     for outer_box in items:
-        result += (
-            "|"
-            + outer_box["vendor"]
-            + "["
-            + "<br />"
-            + outer_box["name"]
-            + "]("
-            + outer_box["link"]
-            + ")<br />*"
-            + outer_box["type"]
-            + "* | "
-        )
+        result += "|{vendor}[<br />{name}]({link})<br />*{type}* |".format(**outer_box)
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
             if inner_box["type"] != "Shelf":
@@ -125,7 +118,12 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
                     )
                     + " | "
                 )
-        result += "|\n"
+        result += "|\n" 
+    result += "  \n" \
+            "## Legend\n" \
+            "❌ No fit at all  \n" \
+            "🔘 Bad fit (<70%% surface utilizazion)  \n" \
+            "✔️ Good fit (>70%% fit)"
     return result
 
 
