@@ -48,7 +48,7 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
     result += "<table><tr class='boxcomp-header'>"
     result += "<th>Outer\\Inner</th>"
     for inner_box in items:
-        if inner_box["type"] != "Shelf":
+        if inner_box["type"] == "Container":
             ct = ct + 1
             result += (
                 "<th>" + inner_box["vendor"] + "<br />" + inner_box["name"] + "</th>"
@@ -70,7 +70,7 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
         )
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
-            if inner_box["type"] != "Shelf":
+            if inner_box["type"] == "Container":
                 result += "<td class='boxcomp-state'>" + (
                     check_and_render_compatility_to_html(
                         outer_box["inner_x"],
@@ -96,7 +96,7 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
     ct = 1
     result += "| Outer\\Inner|"
     for inner_box in items:
-        if inner_box["type"] != "Shelf":
+        if inner_box["type"] == "Container":
             ct = ct + 1
             result += inner_box["vendor"] + "<br />" + inner_box["name"] + "|"
     result += "\n"
@@ -108,7 +108,7 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
         result += "|{vendor}[<br />{name}]({link})<br />*{type}* |".format(**outer_box)
         for inner_box in items:
             # Just non Shelfs because shelfs in shelfs make not sense
-            if inner_box["type"] != "Shelf":
+            if inner_box["type"] == "Container":
                 result += (
                     check_and_render_compatility_to_html(
                         outer_box["inner_x"],

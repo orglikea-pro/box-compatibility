@@ -11,6 +11,26 @@ The results can be viewed [here](https://orglikea.pro/tools/box-compatibility/) 
 *Example table*
 ![Example](example.png)
 
+### Object Kinds
+There are different kinds of categories which are defined by the following constraints.
+
+- A **Container** is an object that is filled from above. It does not have overlapping compartments. A typical example of a container is an open cardboard box.
+- A **Shelf** is characterized by several compartments on top of each other, which are accessible from the front.
+- A **Drawer** cabinet is similar to a shelf, but is also accessed from "above".
+
+Important for all elements is that always the full dimensions are taken. For example, Ikea Kallax has a drawer insert that can ONLY be used with the rule. Here the outer dimensions are those of Kallax and the inner dimensions are those of the drawer. 
+
+
+### Rating
+The resulting Matrix shows how well elements fit together.
+This is indicated by one of the following symbols
+
+
+❌ No fit at all  
+🔘 Bad fit (<70% surface utilization)  
+✔️ Good fit (>70% fit)
+
+
 ## Adding a New Box
 
 To contribute to the Box Compatibility Project and add a new box to the database, please follow these steps:
