@@ -84,7 +84,7 @@ def render_to_html(items, prefix="<html><body>", postfix="</body></html>"):
     result += "</table>"
     result += "<h2>Legend</h2>\n" \
         "❌ No fit at all <br />\n" \
-        "🔘 Bad fit (<70%% surface utilizazion) <br /> \n" \
+        "🔘 Bad fit (<70%% surface utilization) <br /> \n" \
         "✔️ Good fit (>70%% fit)"
     result += postfix
     return result
@@ -122,7 +122,7 @@ def render_to_md(items, prefix="# Box Compatibliy\n"):
     result += "  \n" \
             "## Legend\n" \
             "❌ No fit at all  \n" \
-            "🔘 Bad fit (<70%% surface utilizazion)  \n" \
+            "🔘 Bad fit (<70%% surface utilization)  \n" \
             "✔️ Good fit (>70%% fit)"
     return result
 
