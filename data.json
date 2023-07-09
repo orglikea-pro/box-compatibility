@@ -138,5 +138,15 @@
         "inner_y": 29.7,
         "outer_x": 58,
         "outer_y": 36
+    },
+    {
+        "name": "Systainer",
+        "vendor": "Generic",
+        "type": "Container",
+        "link": "https://systainer.com/",
+        "inner_x": 35.6,
+        "inner_y": 26.2,
+        "outer_x": 39.5,
+        "outer_y": 29.5
     }
 ]
