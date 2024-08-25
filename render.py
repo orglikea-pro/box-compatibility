@@ -177,6 +177,21 @@ if __name__ == "__main__":
         content = render_to_html(boxdata)
         output_filename = "output.html"
 
+    if config["format"] == "readme":
+        content = render_to_md(boxdata)
+        output_filename = "README.md"
+
+        header = ""
+        footer = ""
+        with open('templates/README_header.md','r') as f:
+            header = f.read()
+        with open('templates/README_footer.md','r') as f:
+            footer = f.read()
+
+        with open(output_filename, "w", encoding="UTF-8") as f:
+            f.write(header+content+footer)
+            quit()
+
     if config["output"] != None:
         output_filename = config["output"]
 
