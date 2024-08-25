@@ -148,5 +148,25 @@
         "inner_y": 26.2,
         "outer_x": 39.5,
         "outer_y": 29.5
+    },
+    {
+        "name": "Rensare large",
+        "vendor": "Ikea",
+        "type": "Container",
+        "link": "https://www.ikea.com/de/de/p/rensare-kleidertasche-3-st-karos-grau-schwarz-30432502/",
+        "inner_x": 24.8,
+        "inner_y": 33.8,
+        "outer_x": 25,
+        "outer_y": 34
+    },
+    {
+        "name": "Rensare small",
+        "vendor": "Ikea",
+        "type": "Container",
+        "link": "https://www.ikea.com/de/de/p/rensare-kleidertasche-3-st-karos-grau-schwarz-30432502/",
+        "inner_x": 24.8,
+        "inner_y": 16.8,
+        "outer_x": 25,
+        "outer_y": 17
     }
 ]
